@@ -1,0 +1,4 @@
+node_modules/
+views/home.ejs
+views/membership.ejs
+views/paper.ejs
