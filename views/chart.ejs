@@ -39,53 +39,69 @@ body {
       <script src="barChart.js"></script>
 
       <script>
-          const span = document.querySelector('.d');
-    span.innerText = '12/3/2024';
-    const ctx = document.getElementById('myChart');
-        const label = <%- JSON.stringify(label); %>;
-        const data = <%- JSON.stringify(data); %>;
-        console.log(label)
-        console.log(data)
-    new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: label,
-        datasets: [{
-            // barPercentage: 0.6,
-            label: 'Data',
-            data: data,
-            backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'
-            ],
-            borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)'
-            ],
-            borderWidth: 1
+            const span = document.querySelector('.d');
+span.innerText = '12/3/2024';
+const ctx = document.getElementById('myChart');
+  const label = <%- JSON.stringify(label1); %>;
+  const data1 = <%- JSON.stringify(data1); %>;
+  const data2 = <%- JSON.stringify(data2); %>;
+//   console.log(label)
+//   console.log(data)
+new Chart(ctx, {
+type: 'bar',
+data: {
+  labels: label,
+  datasets: [{
+      // barPercentage: 0.6,
+      // barthickness: ,
+      label: 'Filed',
+      data: data1,
+      backgroundColor: [
+      'rgba(255, 99, 132,0.7)',
+      ],
+      borderColor: [
+      'rgb(255, 99, 132)',
+      ],
+      borderWidth: 1,
+      barPercentage: 0.7,
+
   
-        }]
-    },
-    options: {
-        categoryPercentage: 1,
-        barPercentage: 1,
-        scales: {
-        y: {
-            beginAtZero: true
-        }
-        }
+  },{
+      // barPercentage: 0.6,
+      // barthickness: ,
+      label: 'granted',
+      data: data2,
+      backgroundColor: [
+      'rgba(201, 203, 207,0.7)'
+      ],
+      borderColor: [
+      'rgb(201, 203, 207)'
+      ],
+      borderWidth: 1,
+      barPercentage: 0.7,
+  }]
+},
+
+options: {
+  categoryPercentage: 1,
+  barPercentage: 1,
+  scales: {
+  y: {
+      beginAtZero: true
+  }
+  }
+}
+});
+
+function polarity(x){
+    if(x%2===0){
+        return true;
+    }else{
+        return false;
     }
-    });
+}
       </script>
 </body>
 </html>
+
+

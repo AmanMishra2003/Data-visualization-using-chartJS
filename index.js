@@ -24,7 +24,25 @@ app.get('/',(req,res)=>{
                 label.push(x.label)
                 data.push(x.COUNT)
             }
-            res.render("chart", {label,data})
+            const data1 = data.filter((x,idx)=>{
+                if(idx%2===0){
+                    return x
+                }
+                
+            })
+            const data2 = data.filter((x,idx)=>{
+                if(idx%2!==0){
+                    return x
+                }
+            })
+            const label1 = label.map((x,idx)=>{
+                if(idx%2===0){
+                    const newX = x.split(" ")[0]
+                    return newX[0].toUpperCase() + newX.slice(1)
+                }
+            }).filter(x=>x!==undefined)
+           
+            res.render("chart", {label1,data1,data2})
         });
 })
 
